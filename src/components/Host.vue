@@ -1,21 +1,17 @@
 <template>
     <section>
         <div class="nav-bar">
-            <h1>Welcome to Galaxy Airline</h1>
-            <h2>{{ cruise.name }}</h2>
-            <h4>{{ cruise.description }}</h4>
+            <h1>{{ cruise.name }}</h1>
+            <h3>{{ cruise.description }}</h3>
         </div>
         
 
         <div>
-            <!-- <h2>{{ cruise.name }}</h2>
-            <div>{{ cruise.description }}</div>
-            <hr /> -->
-
+            <img alt="Web logo" src="../assets/fly.png">
             <div class="row">
                 <div>
                     <!-- TODO: Add booking-form -->
-                    <booking-form @booking-created="addBooking" :cabins="cruise.cabins" :countrys="cruise.countrys"></booking-form>
+                    <booking-form @booking-created="addBooking" :cabins="cruise.cabins" :from="cruise.from" :to="cruise.to"></booking-form>
                 </div>
                 <div>
                     <!-- TODO: Add booking-list -->
@@ -42,16 +38,23 @@ import BookingForm from './BookingForm.vue';
                         { name: 'Bussiness Class', price:5000 },
                         { name: 'First Class', price:12500 },
                     ],
-                    countrys: [
-                        { name: 'America'},
-                        { name: 'UK'},
-                        { name: 'Japan'},
-                        { name: 'Korea'},
-                    ]
+                    from: [
+                        { name: '(TPE)Taipei'},
+                        { name: '(KHH)Kaohsiung'},
+                        { name: '(HKG)Hongkong'},
+                        { name: '(ICN)Incheon'},
+                    ],
+                    to: [
+                        { name: '(TPE)Taipei'},
+                        { name: '(KHH)Kaohsiung'},
+                        { name: '(HKG)Hongkong'},
+                        { name: '(ICN)Incheon'},
+                    ],
                 }, 
                 bookings: [
                     { name: 'Sample', price: 0 }
-                ]
+                ],
+                
             }
         },
         // TODO: ADD Components
@@ -60,11 +63,13 @@ import BookingForm from './BookingForm.vue';
             BookingForm
         },
         methods: {
-            addBooking(cabinIndex, countryId) {
+            addBooking(cabinIndex, fromId, toId) {
                 const cabin = this.cruise.cabins[cabinIndex];
-                const country = this.cruise.countrys[countryId];
+                const from = this.cruise.from[fromId];
+                const to = this.cruise.to[toId];
                 const booking = {
-                    country: country.name,
+                    from: from.name,
+                    to: to.name,
                     cabin: cabin.name,
                     price: cabin.price,
                 }
@@ -75,6 +80,9 @@ import BookingForm from './BookingForm.vue';
 </script>
 
 <style scoped>
+img {
+    width: 1450px;
+}
 body {
     background-color: white;
     margin: 0, 5%;
@@ -82,6 +90,7 @@ body {
 }
 
 .row {
+    border-style: dotted;
     display: grid;
     grid-template-columns: 1fr 1fr;
     vertical-align: middle;
@@ -90,7 +99,7 @@ body {
 .nav-bar {
     background: linear-gradient(-50deg, #33FFCA,#33DDFF);
     height: 180px;
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
     text-align: center;
 }
 .head {

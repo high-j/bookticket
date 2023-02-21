@@ -5,7 +5,10 @@
     </h2>
 
     <div class="row" v-for="(booking, index) in bookings" :key="index">
-        <div class="country">{{ booking.country }}</div>
+        <div class="country">
+            {{ booking.from }} ⇢
+            {{ booking.to }}
+        </div>
         <div>{{ booking.cabin }}</div><hr />
     </div>
 
