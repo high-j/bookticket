@@ -1,7 +1,7 @@
 <template>
 <section>
     <h2>
-        Here's your current bookings:
+        Here's your bookings:
     </h2>
 
     <div class="row" v-for="(booking, index) in bookings" :key="index">

@@ -83,7 +83,7 @@ button {
     font-size: 20px;
     border-radius: 8px;
     border: white;
-    background-color: darkgray;
+    background-color: rgb(216, 215, 215);
 }
 button:hover { background-color: rgb(126, 213, 188); }
 button:active {

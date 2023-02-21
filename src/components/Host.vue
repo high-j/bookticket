@@ -7,14 +7,14 @@
         
 
         <div>
-            <img alt="Web logo" src="../assets/fly.png">
+            <img alt="Web pic" src="../assets/fly.png">
             <div class="row">
                 <div>
-                    <!-- TODO: Add booking-form -->
+                    <!-- Add booking-form -->
                     <booking-form @booking-created="addBooking" :cabins="cruise.cabins" :from="cruise.from" :to="cruise.to"></booking-form>
                 </div>
                 <div>
-                    <!-- TODO: Add booking-list -->
+                    <!-- Add booking-list -->
                     <booking-list :bookings="bookings"></booking-list>
                 </div>
             </div>
@@ -32,7 +32,7 @@ import BookingForm from './BookingForm.vue';
             return {
                 cruise:{
                     name: 'Cruise to anywhere',
-                    description: 'Book a ticket and enjoy your life.',
+                    description: 'Book a flight and enjoy your life.',
                     cabins: [
                         { name:'Economy Class', price:2500 },
                         { name: 'Bussiness Class', price:5000 },
@@ -57,7 +57,7 @@ import BookingForm from './BookingForm.vue';
                 
             }
         },
-        // TODO: ADD Components
+        // ADD Components
         components: {
             BookingList,
             BookingForm
@@ -91,6 +91,7 @@ body {
 
 .row {
     border-style: dotted;
+    border-radius: 20px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     vertical-align: middle;
