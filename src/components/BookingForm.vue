@@ -62,6 +62,7 @@ import '@vuepic/vue-datepicker/dist/main.css'
                 this.cabinIndex = -1;
                 this.fromId = -1;
                 this.toId = -1;
+                this.date = ''
             },
         },
     }
