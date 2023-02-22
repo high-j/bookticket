@@ -17,6 +17,7 @@
                     {{ country.name }} 
                 </option>
             </select><br><br>
+            <VueDatePicker v-model="date" class="datepick" placeholder="select date"></VueDatePicker><br>
             <label for="cruise-cabin">Select class : </label>
             <select id="cruise-cabin" v-model="cabinIndex">
                 <option disabled value="-1">Select a cabin</option>
@@ -33,7 +34,12 @@
 </template>
 
 <script>
+import VueDatePicker from '@vuepic/vue-datepicker';
+import '@vuepic/vue-datepicker/dist/main.css'
     export default {
+        components: {
+            VueDatePicker
+        },
         props: {
             cabins: Array,
             from: Array,
@@ -42,6 +48,7 @@
         emits: [ 'bookingCreated' ],
         data() {
             return {
+                date: null,
                 cabinIndex: -1,
                 fromId: -1,
                 toId: -1,
@@ -49,17 +56,22 @@
         },
         methods: {
             bookCabin() {
-                if (this.cabinIndex < 0 && this.fromId < 0 && this.toId < 0) return;
-                this.$emit('bookingCreated', this.cabinIndex,this.fromId, this.toId);
+                if (this.cabinIndex < 0 && this.fromId < 0 && this.toId < 0 && date != null) return;
+                // console.log(this.date)
+                this.$emit('bookingCreated', this.cabinIndex,this.fromId, this.toId, this.date);
                 this.cabinIndex = -1;
                 this.fromId = -1;
                 this.toId = -1;
             },
-        }
+        },
     }
 </script>
 
 <style scoped>
+.datepick {
+    width: 50%;
+}
+
 h2 {
     font-size: 30px;
     position: relative;

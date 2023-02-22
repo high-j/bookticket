@@ -7,7 +7,10 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
-    "vue": "^3.2.13"
+    "@syncfusion/ej2-vue-calendars": "^20.4.51",
+    "@vuepic/vue-datepicker": "^4.0.1",
+    "vue": "^3.2.13",
+    "vue-date-pick": "^1.5.1"
   },
   "devDependencies": {
     "@vue/cli-service": "~5.0.0"

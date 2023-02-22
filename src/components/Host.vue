@@ -26,6 +26,7 @@
 import BookingList from './BookingList.vue';
 import BookingForm from './BookingForm.vue';
 
+
     export default {
         name: 'Host',
         data() {
@@ -50,6 +51,7 @@ import BookingForm from './BookingForm.vue';
                         { name: '(HKG)Hongkong'},
                         { name: '(ICN)Incheon'},
                     ],
+                    date: ''
                 }, 
                 bookings: [
                     { name: 'Sample', price: 0 }
@@ -60,10 +62,10 @@ import BookingForm from './BookingForm.vue';
         // ADD Components
         components: {
             BookingList,
-            BookingForm
+            BookingForm,
         },
         methods: {
-            addBooking(cabinIndex, fromId, toId) {
+            addBooking(cabinIndex, fromId, toId, date) {
                 const cabin = this.cruise.cabins[cabinIndex];
                 const from = this.cruise.from[fromId];
                 const to = this.cruise.to[toId];
@@ -72,6 +74,7 @@ import BookingForm from './BookingForm.vue';
                     to: to.name,
                     cabin: cabin.name,
                     price: cabin.price,
+                    datepick: date.getFullYear()+ '/' +(date.getMonth() + 1) + '/' + date.getDate()
                 }
                 this.bookings.push(booking);
             }

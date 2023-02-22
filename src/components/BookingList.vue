@@ -9,6 +9,7 @@
             {{ booking.from }} ⇢
             {{ booking.to }}
         </div>
+        <div class="date">{{ booking.datepick }}</div>
         <div>{{ booking.cabin }}</div><hr />
     </div>
 
@@ -47,6 +48,11 @@ h2 {
 
 .country {
     color: brown;
+    font-weight: bolder;
+}
+
+.date {
+    color: rgb(56, 75, 111);
     font-weight: bolder;
 }
 </style>
