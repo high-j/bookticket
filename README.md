@@ -17,3 +17,6 @@ npm run build
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+###Webpage demo
+![image](https://github.com/high-j/bookticket/blob/master/View%20demo.png)
